@@ -1,0 +1,64 @@
+CMPT 383 Final Project 
+Lee Roy Gomos
+301313035
+
+
+Overall Project Goal:
+
+I took one of the suggested project ideas which was to create a web-based system that 
+did calculations in a web browser. This application allows users to calculate:
+    - Fibonacci
+    - Factorial
+    - Exponents
+    - Numeric Conversions
+        - Decimal to binary
+        - Decimal to hexadecimal
+        - Binary to decimal
+        - Binary to hexadecimal
+        - Hexadecimal to decimal
+        - Hexadecimal to binary
+    - Quadratic Formula
+    - Pythagorean Theorem
+
+
+Languages Used:
+
+For this project, I used Django as the web framework which runs Python.
+For the fibonacci, factorial, exponents, quadratic, and pythagorean functions,
+I used C++ and for all the numeric conversion functions, I used Go. I chose
+these languages because of their performance compared to Python. Also, Go has
+great built-in concurrency features that would speed up much larger calculations,
+such as fibonacci. However, I could not get the concurrent fibonacci working for
+Go (I know its in exercise 10, but I also couldn't get that to work) which is why 
+I implemented it recursively in C++ instead, but it can be done.
+
+
+Methods for communication between languages:
+
+I used SWIG in order to call the C++ functions in my Django webserver. The shared object
+and Python files are compiled with SWIG when Vagrant starts up which allows the Django 
+server to use those functions. For Go functions, Cgo allows the file to be compiled as a 
+C shared object file, which is then called in a Python file using ctypes, which are called 
+in the webserver. So basically Go uses Cgo to compile to C then Python calls the C code 
+and uses ctypes to work with the functions. This is also done when vagrant starts up.
+
+
+Running the project:
+
+Once you've cloned the repository from Git, all you have to do is run vagrant up and 
+the server should be running. The IP address I used for the web server is 55.55.55.5:8000
+
+Possible issues and solutions:
+
+When I run vagrant up for the first time it might timeout. Usually I just check the 
+VirtualBox GUI and see if its still starting up the server. If it is then I wait until
+it finishes and run vagrant reload.
+
+If vagrant up gives you a checksum mismatch error, running vagrant provision usually 
+fixes it and the server should run.
+
+If you get any other error just try running vagrant destroy/vagrant up or vagrant provision 
+again, it should work eventually.
+
+If you crash the server from by inputting a really large number for any of the calculations
+then you will have to vagrant destroy and vagrant up again.

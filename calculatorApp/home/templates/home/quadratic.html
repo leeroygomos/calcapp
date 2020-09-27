@@ -1,0 +1,22 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <h1>Quadratic page!</h1>
+    <form action="/quadratic/" method="post">{% csrf_token %}
+        <label for="a">a: </label>
+        <input type="text" id="a" name="a" value="{{ a }}"><br>
+        <label for="b">b: </label>
+        <input type="text" id="b" name="b" value="{{ b }}"><br>
+        <label for="c">c: </label>
+        <input type="text" id="c" name="c" value="{{ c }}"><br>
+        <input type="submit" value="OK"><br>
+    </form>
+
+    <p>
+        {%if x1%}
+        The roots are {{ x1 }} and {{ x2}}
+        {%endif%}
+    </p>
+
+
+
+{% endblock content%}

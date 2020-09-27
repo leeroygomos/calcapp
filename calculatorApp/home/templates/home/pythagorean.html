@@ -1,0 +1,20 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <h1>Pythagorean page!</h1>
+    <form action="/pythagorean/" method="post">{% csrf_token %}
+        <label for="a">a: </label>
+        <input type="text" id="a" name="a" value="{{ a }}"><br>
+        <label for="b">b: </label>
+        <input type="text" id="b" name="b" value="{{ b }}"><br>
+        <input type="submit" value="OK"><br>
+    </form>
+
+    <p>
+        {%if c%}
+        c is {{ c }}
+        {%endif%}
+    </p>
+
+
+
+{% endblock content%}

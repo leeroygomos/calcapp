@@ -1,0 +1,16 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <h1>Fibonacci page!</h1>
+    <form action="/fibonacci/" method="post">{% csrf_token %}
+        <label for="data">Data: </label>
+        <input type="text" id="data" name="data" value="{{ data }}"><br>
+        <input type="submit" value="OK"><br>
+    </form>
+
+    <p>
+        {%if fib%}
+        The {{ data }}th fibonacci number is {{ fib }}
+        {%endif%}
+    </p>
+
+{% endblock content%}

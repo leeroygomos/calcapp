@@ -1,0 +1,30 @@
+{% extends "home/base.html" %}
+{% block content %}
+    <h1>Conversion page!</h1>
+    <form action="/conversion/" method="post">{% csrf_token %}
+        <label for="data">Data: </label>
+        <input type="text" id="data" name="data" value="{{ data }}"><br>
+        <p>from</p>
+        <input type="radio" id ="decimal" name="from" value="decimal">
+        <label for="decimal">Decimal</label><br>
+        <input type="radio" id ="binary" name="from" value="binary">
+        <label for="binary">Binary</label><br>
+        <input type="radio" id ="hexadecimal" name="from" value="hex">
+        <label for="hexadecimal">Hexadecimal</label><br>
+        <p>to</p>
+        <input type="radio" id ="decimal" name="to" value="decimal">
+        <label for="decimal">Decimal</label><br>
+        <input type="radio" id ="binary" name="to" value="binary">
+        <label for="binary">Binary</label><br>
+        <input type="radio" id ="hexadecimal" name="to" value="hex">
+        <label for="hexadecimal">Hexadecimal</label><br>
+        <input type="submit" value="OK"><br>
+    </form>
+
+    <p>
+        {%if val%}
+        {{ val }}
+        {%endif%}
+    </p>
+
+{% endblock content%}
