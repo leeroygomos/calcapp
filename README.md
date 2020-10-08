@@ -18,11 +18,11 @@ This web application allows users to calculate:
 
 This application uses Django as its web framework and uses C++ via Swig and Go via Cgo to run its calculations.
 
-For more information about the project, check the cmpt383.txt
+For more information about the project, check the notes.txt
 
 # Quick Start Guide
 1. Run 'vagrant up'
 2. Go to http://55.55.55.5:8000 on your favorite browser
 3. The app should be running!
 
-If there are problems, check the cmpt383.txt
+If there are problems, check the notes.txt
